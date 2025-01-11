@@ -53,7 +53,7 @@ pub(crate) async fn main(opt: Opt, reactor: NeoReactor) -> Result<()> {
         channel_id: config.channel_id,
         duplex: talk_ability.duplex_list[config_id].duplex.clone(),
         audio_stream_mode: talk_ability.audio_stream_mode_list[config_id]
-            .audio_stream_mode
+            .audio_stream_mode[0]
             .clone(),
         audio_config: talk_ability.audio_config_list[config_id]
             .audio_config
