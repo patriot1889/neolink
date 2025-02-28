@@ -148,9 +148,9 @@ fn create_pipeline(
         ! audioresample \
         ! audio/x-raw,rate={},channels=1 \
         ! volume volume={:.2} \
-        ! queue  \
+        ! queue max-size-buffers=1 max-size-time=0 max-size-bytes=0 \
         ! adpcmenc blockalign={} layout=dvi \
-        ! appsink name=thesink",
+        ! appsink name=thesink sync=false",
         source, sample_rate, volume, block_align
     );
 
@@ -166,6 +166,9 @@ fn create_pipeline(
     })?;
 
     let appsink = get_sink(&pipeline)?;
+    appsink.set_property("max-buffers", &(1u32));
+    appsink.set_property("drop", &true);
+    
 
     // Tell the appsink what format we want. It will then be the audiotestsrc's job to
     // provide the format we request.
