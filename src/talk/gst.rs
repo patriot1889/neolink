@@ -144,8 +144,7 @@ fn create_pipeline(
     let launch_str = format!(
         "{} \
         ! alawdec \
-        ! webrtcechoprobe \
-        ! webrtcdsp noise-suppression=1 \
+        ! webrtcdsp noise-suppression=1 echo-cancel=1 \
         ! audioconvert \
         ! audioresample \
         ! audio/x-raw,rate={},channels=1 \
