@@ -152,12 +152,12 @@ fn create_pipeline(
     let mut webrtcdsp = "".to_string();
     if noise_suppression || echo_cancel {
         let noise_string = if noise_suppression {
-            format!("noise-suppression=true noise_suppression_level={}", noise_suppression_level)
+            format!("noise-suppression=true noise-suppression-level={}", noise_suppression_level)
         } else {
             "".to_string()
         };
         let echo_string = if echo_cancel {
-            format!("echo-cancel=true echo_suppression_level={}", echo_suppression_level)
+            format!("echo-cancel=true echo-suppression-level={}", echo_suppression_level)
         } else {
             "".to_string()
         };
