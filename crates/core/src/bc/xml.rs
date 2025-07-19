@@ -605,7 +605,7 @@ pub struct DuplexList {
 pub struct AudioStreamModeList {
     /// The supported audio stream mode
     #[serde(rename = "audioStreamMode")]
-    pub audio_stream_mode: String,
+    pub audio_stream_mode: Vec<String>,
 }
 
 /// audioConfigList xml
