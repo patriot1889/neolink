@@ -167,6 +167,7 @@ fn create_pipeline(
     let launch_str = format!(
         "{} \
         ! decodebin \
+        {} \
         ! audioconvert \
         ! audioresample \
         ! audio/x-raw,rate={},channels=1 \
